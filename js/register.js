@@ -99,11 +99,11 @@ function ValidateOnClick(e){
     e.preventDefault;
     if(!form){
         formError.style.display = 'inline';
-    }else if(!label){
+    }else if(!(label.length=4)){
         labelError.style.display = 'inline';
-    }else if(!button){
+    }else if(!button.value=="Suscribe!"){
         buttonError.style.display = 'inline';
-    }else if(!inputs){
+    }else if(!(inputs.length=7)){
         inputError.style.display = 'inline';
     }else{
         passValidate.style.display = 'block';

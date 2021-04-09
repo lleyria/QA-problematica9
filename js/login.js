@@ -52,10 +52,10 @@ button.addEventListener('click', suscribeOnClick);
 
 //Validate Button
 var validator = document.getElementById('validate')
-var inputs = document.querySelector('input');
+var inputs = document.querySelectorAll('input');
 var form = document.querySelector('form');
-var label = document.querySelector('label');
-var button = document.querySelector('button')
+var label = document.querySelectorAll('label');
+var button = document.getElementById('suscribe-buton');
 var inputError = document.getElementById('input-error');
 var formError = document.getElementById('form-error');
 var labelError = document.getElementById('label-error');
@@ -65,11 +65,11 @@ function ValidateOnClick(e){
     e.preventDefault;
     if(!form){
         formError.style.display = 'inline';
-    }else if(!label){
+    }else if(!(label.length>=2)){
         labelError.style.display = 'inline';
-    }else if(!button){
+    }else if(!button.value=="Suscribe!"){
         buttonError.style.display = 'inline';
-    }else if(!inputs){
+    }else if(!inputs.length>=5){
         inputError.style.display = 'inline';
     }else{
         passValidate.style.display = 'block';
