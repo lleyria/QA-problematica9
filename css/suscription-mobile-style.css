@@ -107,11 +107,23 @@ input{
     font-family: Helvetica, sans-serif;
     font-size: 13px;
 }
+.passed{
+    display: none;
+    font-weight: bold;
+    background-color: white;
+    color: #258D0E;
+    padding: 2px;
+    font-family: Helvetica, sans-serif;
+    font-size: 13px;
+}
+.fail{
+    display: none;
+}
 .btn{
     display: flex;
     justify-content: center;
 }
-#suscribe-buton{
+.buton{
     background-color: whitesmoke;
     color: #fd345b;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

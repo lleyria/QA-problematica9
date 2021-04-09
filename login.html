@@ -61,14 +61,31 @@
                                     Please enter a valid password.
                                 </div>
                             </div>
-                        </div>
-                           
+                        </div>    
                         <div class="btn">
-                            <input type="submit" name="submit" value="Suscribe!" id="suscribe-buton">
+                            <input type="submit" name="submit" value="Suscribe!" class="buton" id="suscribe-buton">
                         </div>
                         <div class="btn">
-                            <a href="register.html"><input name="suscribe" value="Go To Register" id="suscribe-buton"></a>
+                            <a href="register.html"><button type="button" class="buton">Go To Register</button></a>
                         </div>
+                        <div class="btn">
+                            <button type="button" class="buton" id="validate">Validate</button>
+                        </div>
+                        <div class="btn">
+                            <input type="reset" class="buton" id="reset"></input>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="fail" id="form-error">validations results: form is not found.</li>
+                                <li class="fail" id="input-error">validations results: there are missing inputs.</li>
+                                <li class="fail" id="label-error">validations results: there are missing labels for inputs.</li>
+                                <li class="fail" id="button-error">validations results: missing submit button.</li>
+                            </ul>
+                        </div>
+                        <div class="passed" id="validate-register-passed">
+                                validations results: every validation has passed.
+                        </div>
+                    </form>
                 </section>
             </div>
         </section>
@@ -101,6 +118,6 @@
             </div>
         </footer>
     </body>
-    <script src="js/validation.js"></script>
+    <script src="js/loginValidation.js"></script>
     <script src="js/login.js"></script>
 </html>

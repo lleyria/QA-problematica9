@@ -72,9 +72,8 @@ function rPasswordOnFocus(){
 }
 rPassword.addEventListener('focus', rPasswordOnFocus);
 
-
 // Suscribe Button
-var button = document.getElementById('suscribe-buton');
+var suscribeButton = document.getElementById('suscribe-buton');
 function suscribeOnClick(e){
     e.preventDefault;
     if(dataValidation(formValues)){
@@ -83,14 +82,41 @@ function suscribeOnClick(e){
         alert("There's an error in: " + errorValues[0] + errorValues[1] + errorValues[2] + errorValues[3]);
     }
 }
-button.addEventListener('click', suscribeOnClick);
-//Bonus
-var newTitle = document.querySelector('h4');
-function fullNameOnFocus2(){
-    newTitle.style.display = 'block';
+suscribeButton.addEventListener('click', suscribeOnClick);
+
+//Validate Button
+var validator = document.getElementById('validate')
+var inputs = document.querySelector('input');
+var form = document.querySelector('form');
+var label = document.querySelector('label');
+var button = document.querySelector('button')
+var inputError = document.getElementById('input-error');
+var formError = document.getElementById('form-error');
+var labelError = document.getElementById('label-error');
+var buttonError = document.getElementById('input-error');
+var passValidate = document.getElementById('validate-register-passed');
+function ValidateOnClick(e){
+    e.preventDefault;
+    if(!form){
+        formError.style.display = 'inline';
+    }else if(!label){
+        labelError.style.display = 'inline';
+    }else if(!button){
+        buttonError.style.display = 'inline';
+    }else if(!inputs){
+        inputError.style.display = 'inline';
+    }else{
+        passValidate.style.display = 'block';
+    }
 }
-function fullNameOnKeydown(e){
-    newTitle.innerText = 'Hola '+ e.target.value;
-}
-fullName.addEventListener('focus', fullNameOnFocus2);
-fullName.addEventListener('keydown', fullNameOnKeydown);
+validator.addEventListener('click', ValidateOnClick);
+// //Bonus
+// var newTitle = document.querySelector('h4');
+// function fullNameOnFocus2(){
+//     newTitle.style.display = 'block';
+// }
+// function fullNameOnKeydown(e){
+//     newTitle.innerText = 'Hola '+ e.target.value;
+// }
+// fullName.addEventListener('focus', fullNameOnFocus2);
+// fullName.addEventListener('keydown', fullNameOnKeydown);
