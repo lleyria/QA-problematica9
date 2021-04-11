@@ -10,7 +10,7 @@ function fullNameOnBlur(e){
    }else{
         error1.style.display = 'block';
         formValues.name = undefined;
-        errorValues[0] = "Full name field";
+        errorValues[0] = "-Full name field";
    }
 }
 fullName.addEventListener('blur', fullNameOnBlur);
@@ -28,7 +28,7 @@ function emailOnBlur(e){
     }else{
         error2.style.display = 'block';
         formValues.email = undefined;
-        errorValues[1] = " Email field";
+        errorValues[1] = " -Email field";
     }
 }
 eMail.addEventListener('blur', emailOnBlur);
@@ -46,7 +46,7 @@ function passwordOnBlur(e){
     }else{
         error3.style.display = 'block';
         formValues.password = undefined;
-        errorValues[2] = " Password field";
+        errorValues[2] = " -Password field";
     }
 }
 password.addEventListener('blur', passwordOnBlur);
@@ -63,7 +63,7 @@ function rPasswordOnBlur(e){
         errorValues[3] = "";
     }else{
         error4.style.display = 'block';
-        errorValues[3] = " Repeat password field";
+        errorValues[3] = " -Repeat password field";
     }
 }
 rPassword.addEventListener('blur', rPasswordOnBlur);
@@ -72,51 +72,43 @@ function rPasswordOnFocus(){
 }
 rPassword.addEventListener('focus', rPasswordOnFocus);
 
-// Suscribe Button
-var suscribeButton = document.getElementById('suscribe-buton');
-function suscribeOnClick(e){
-    e.preventDefault;
-    if(dataValidation(formValues)){
-        alert(formValues.name + " " + formValues.email);
-    }else{
-        alert("There's an error in: " + errorValues[0] + errorValues[1] + errorValues[2] + errorValues[3]);
-    }
-}
-suscribeButton.addEventListener('click', suscribeOnClick);
-
 //Validate Button
-var validator = document.getElementById('validate')
+var newTitle = document.getElementById('displayinfo')
+var suscribeButton = document.getElementById('suscribe-buton');
+var validator = document.getElementById('validate');
 var inputs = document.querySelector('input');
 var form = document.querySelector('form');
 var label = document.querySelector('label');
-var button = document.querySelector('button')
 var inputError = document.getElementById('input-error');
 var formError = document.getElementById('form-error');
 var labelError = document.getElementById('label-error');
 var buttonError = document.getElementById('input-error');
 var passValidate = document.getElementById('validate-register-passed');
-function ValidateOnClick(e){
+async function GetUsers(){
+    fetch('https://jsonplaceholder.typicode.com/users?email=formValues.email')
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch()
+}
+function SuscribeOnClick(e){
     e.preventDefault;
     if(!form){
         formError.style.display = 'inline';
     }else if(!(label.length=4)){
         labelError.style.display = 'inline';
-    }else if(!button.value=="Suscribe!"){
+    }else if(!validator.innerHTML=="Suscribe"){
         buttonError.style.display = 'inline';
     }else if(!(inputs.length=7)){
         inputError.style.display = 'inline';
     }else{
         passValidate.style.display = 'block';
     }
+    if(dataValidation(formValues)){
+        newTitle.innerText = "Full Name:" + formValues.name + " " + "Email:" + formValues.email;
+    }else{
+        alert("There's an error in: " + errorValues[0] + errorValues[1] + errorValues[2] + errorValues[3]);
+    }
+    GetUsers();
 }
-validator.addEventListener('click', ValidateOnClick);
-// //Bonus
-// var newTitle = document.querySelector('h4');
-// function fullNameOnFocus2(){
-//     newTitle.style.display = 'block';
-// }
-// function fullNameOnKeydown(e){
-//     newTitle.innerText = 'Hola '+ e.target.value;
-// }
-// fullName.addEventListener('focus', fullNameOnFocus2);
-// fullName.addEventListener('keydown', fullNameOnKeydown);
+validator.addEventListener('click', SuscribeOnClick);
+
