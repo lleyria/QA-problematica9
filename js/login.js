@@ -1,5 +1,5 @@
 var formValues = {email, password};
-var errorValues = ["Full name field"," Email field"];
+var errorValues = ["Email field", "Password field"];
 
 // Email field
 var eMail = document.getElementById('email');
@@ -7,11 +7,11 @@ var error2 = document.getElementById('error2');
 function emailOnBlur(e){
     if(emailValidation(e.target.value)){
         formValues.email = e.target.value;
-        errorValues[1] = "";
+        errorValues[0] = "";
     }else{
         error2.style.display = 'block';
         formValues.email = undefined;
-        errorValues[1] = " -Email field";
+        errorValues[0] = " -Email field";
     }
 }
 eMail.addEventListener('blur', emailOnBlur);
@@ -25,11 +25,11 @@ var error3 = document.getElementById('error3');
 function passwordOnBlur(e){
     if(passwordValidation(e.target.value)){
         formValues.password = e.target.value;
-        errorValues[2] = "";
+        errorValues[1] = "";
     }else{
         error3.style.display = 'block';
         formValues.password = undefined;
-        errorValues[2] = " -Password field";
+        errorValues[1] = " -Password field";
     }
 }
 password.addEventListener('blur', passwordOnBlur);
