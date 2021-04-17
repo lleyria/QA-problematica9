@@ -63,7 +63,7 @@ function LogInOnClick(e){
         labelError.style.display = 'inline';
     }else if(!validator.innerHTML=="Log In"){
         buttonError.style.display = 'inline';
-    }else if(!inputs.length>=5){
+    }else if(inputs.length<4){
         inputError.style.display = 'inline';
     }else{
         passValidate.style.display = 'block';
