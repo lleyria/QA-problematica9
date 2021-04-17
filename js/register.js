@@ -67,6 +67,7 @@ var error4 = document.getElementById('error4');
 if(rPassword){
     function rPasswordOnBlur(e){
         var newPassword = e.target.value;
+        formValues.rpassword = e.target.value;
         if(newPassword === formValues.password){
             errorValues[3] = "";
         }else{
