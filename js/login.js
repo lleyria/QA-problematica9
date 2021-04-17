@@ -1,43 +1,46 @@
-var formValues = {email, password};
+var formValues = {email:undefined, password:undefined};
 var errorValues = ["Email field", "Password field"];
 
 // Email field
 var eMail = document.getElementById('email');
 var error2 = document.getElementById('error2');
-function emailOnBlur(e){
-    if(emailValidation(e.target.value)){
-        formValues.email = e.target.value;
-        errorValues[0] = "";
-    }else{
-        error2.style.display = 'block';
-        formValues.email = undefined;
-        errorValues[0] = " -Email field";
+if (eMail) {
+    function emailOnBlur(e){
+        if(emailValidation(e.target.value)){
+            formValues.email = e.target.value;
+            errorValues[0] = "";
+        }else{
+            error2.style.display = 'block';
+            formValues.email = undefined;
+            errorValues[0] = " -Email field";
+        }
     }
+    eMail.addEventListener('blur', emailOnBlur);
+    function emailOnFocus(){
+        error2.style.display = 'none';
+    }
+    eMail.addEventListener('focus', emailOnFocus)
 }
-eMail.addEventListener('blur', emailOnBlur);
-function emailOnFocus(){
-    error2.style.display = 'none';
-}
-eMail.addEventListener('focus', emailOnFocus);
 // Password field
 var password = document.getElementById('password');
 var error3 = document.getElementById('error3');
-function passwordOnBlur(e){
-    if(passwordValidation(e.target.value)){
-        formValues.password = e.target.value;
-        errorValues[1] = "";
-    }else{
-        error3.style.display = 'block';
-        formValues.password = undefined;
-        errorValues[1] = " -Password field";
+if(password){
+    function passwordOnBlur(e){
+        if(passwordValidation(e.target.value)){
+            formValues.password = e.target.value;
+            errorValues[1] = "";
+        }else{
+            error3.style.display = 'block';
+            formValues.password = undefined;
+            errorValues[1] = " -Password field";
+        }
     }
+    password.addEventListener('blur', passwordOnBlur);
+    function passwordOnFocus(){
+        error3.style.display = 'none';
+    }
+    password.addEventListener('focus', passwordOnFocus);
 }
-password.addEventListener('blur', passwordOnBlur);
-function passwordOnFocus(){
-    error3.style.display = 'none';
-}
-password.addEventListener('focus', passwordOnFocus);
-
 //Validate Button
 var newTitle = document.getElementById('displayinfo');
 var validator = document.getElementById('validate');
